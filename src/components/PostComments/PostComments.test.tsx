@@ -7,7 +7,7 @@ describe('Teste para o componente PostComment', () => {
         expect(screen.getByText('Comentar')).toBeInTheDocument();
     });
     test('Deve adicionar 2 comentarios "gostei" e "massa"', () =>{
-        const {debug} = render(<PostComment />)
+        render(<PostComment />)
         fireEvent.change(screen.getByTestId('campo-comentar'), {
             target: {
                 value: 'gostei' 
@@ -20,7 +20,6 @@ describe('Teste para o componente PostComment', () => {
             },
         })
         fireEvent.click(screen.getByTestId('btn-comentar'))
-        debug()
         expect(screen.getByText('gostei')).toBeInTheDocument()
         expect(screen.getByText('massa')).toBeInTheDocument()
     })
